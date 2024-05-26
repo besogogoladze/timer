@@ -140,7 +140,7 @@ function Tabata() {
 
   if (isActive === true) {
     for (let i = soundNumber; i > 0; i--) {
-      if (workTimeLeft <= i || restTimeLeft <= i) {
+      if (workTimeLeft === i || restTimeLeft === i) {
         playAudio();
       }
     }
