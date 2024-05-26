@@ -29,7 +29,8 @@ function Tabata() {
   const alarmSound = useRef(null);
   const airHornSound = useRef(null);
   const drumEffectRoll = useRef(null);
-  const { soundNumber, SoundTiming } = useToggle();
+  const refClick = useRef(null);
+  const { soundNumber, SoundTiming, StartFunction } = useToggle();
 
   let min = 0;
 
@@ -88,7 +89,10 @@ function Tabata() {
   };
 
   const handleStart = () => {
-    setIsActive(true);
+    setTimeout(() => {
+      setIsActive(true);
+    }, 3000);
+    return clearTimeout();
   };
 
   const handlePause = () => {
@@ -156,8 +160,9 @@ function Tabata() {
 
   return (
     <>
+      <StartFunction />
       <SoundTiming
-        isActive={isActive}
+        isActive={isActive ? "flex" : "none"}
         e={isResting ? formatTimer(restTimeLeft) : formatTimer(workTimeLeft)}
       />
       <div className="tabata-timer">
@@ -183,7 +188,7 @@ function Tabata() {
               Start
             </button>
           ) : (
-            <button onClick={handleStart} disabled={isActive}>
+            <button ref={refClick} onClick={handleStart} disabled={isActive}>
               Start
             </button>
           )}
