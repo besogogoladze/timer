@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Header from "./Components/Navigation/Header";
+import Router from "./Router/Router";
 
 function App() {
+  const [burgerMenu, setBurgerMenu] = useState(false);
+  const menuOpener = () => {
+    setBurgerMenu(true);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ backgroundColor: "#000" }}>
+      <Header
+        setBurgerMenu={setBurgerMenu}
+        burgerMenu={burgerMenu}
+        menuOpener={menuOpener}
+      />
+      <div
+        className={`${burgerMenu ? "burgerHiddenDiv" : null}`}
+        style={{ height: "calc(100vh - 155px)", paddingTop: "100px" }}
+      >
+        <Router />
+      </div>
     </div>
   );
 }

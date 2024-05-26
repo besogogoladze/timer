@@ -1,0 +1,76 @@
+.tabata-timer {
+  text-align: center;
+  background-color: #3b3b3b;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tabata-timer h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.time {
+  font-size: 4rem;
+  margin: 20px 0;
+}
+
+.controls {
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.controls button {
+  color: #fff;
+  background-color: #006128;
+  color: #00e81b;
+  font-size: 20px;
+  width: 80px;
+  height: 80px;
+  border-radius: 80px;
+  border-width: 0px;
+  cursor: pointer;
+}
+
+.controls button:disabled {
+  background-color: grey;
+  cursor: not-allowed;
+}
+
+.settings {
+  margin: 20px 0;
+}
+
+.settings label {
+  display: block;
+  margin: 10px 0;
+  font-size: 1rem;
+}
+
+.settings input {
+  margin-left: 10px;
+  padding: 5px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.current-round {
+  margin: 20px 0;
+}
+
+.current-round h2 {
+  font-size: 1.5rem;
+}
+.current-round,
+.total-workout-time {
+  margin: 20px 0;
+}
+
+.current-round h2,
+.total-workout-time h2 {
+  font-size: 1.5rem;
+}
