@@ -157,6 +157,7 @@ function Tabata() {
   return (
     <>
       <SoundTiming
+        isActive={isActive}
         e={isResting ? formatTimer(restTimeLeft) : formatTimer(workTimeLeft)}
       />
       <div className="tabata-timer">

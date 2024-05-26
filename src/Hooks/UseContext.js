@@ -21,8 +21,8 @@ export const ToggleProvider = ({ children }) => {
     localStorage.setItem("sound", Number(e.target.value));
   };
 
-  const SoundTiming = ({ e }) => {
-    const soundTiming = e[e.length - 1];
+  const SoundTiming = ({ ...props }) => {
+    const soundTiming = props.e[props.e.length - 1];
     return soundTiming <= soundNumber ? (
       <div
         style={{
@@ -36,10 +36,10 @@ export const ToggleProvider = ({ children }) => {
           height: "200px",
           borderRadius: "200px",
           borderWidth: "0px",
-          display: "flex",
           justifyContent: "center",
           alignItems: "center",
           opacity: "60%",
+          display: `${props.isActive ? "flex" : "none"}`,
         }}
       >
         {soundTiming}
