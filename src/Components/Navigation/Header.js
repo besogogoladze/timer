@@ -6,9 +6,11 @@ import TimerIcon from "@mui/icons-material/Timer";
 import AvTimerIcon from "@mui/icons-material/AvTimer";
 import ShutterSpeedIcon from "@mui/icons-material/ShutterSpeed";
 import "./header.css";
+import { useToggle } from "../../Hooks/UseContext";
 
 function Header({ ...props }) {
   const { pathname } = useLocation();
+  const { toggle } = useToggle();
 
   function capitalizeFirstLetter(string) {
     let newString = string.slice(1);
@@ -33,7 +35,9 @@ function Header({ ...props }) {
           <MenuIcon />
         </button>
         <p>{pathname === "/" ? "Tabata" : capitalizeFirstLetter(pathname)}</p>
-        <button style={{ color: "chocolate" }}>Intervals</button>
+        <button onClick={toggle} style={{ color: "chocolate" }}>
+          Intervals
+        </button>
       </div>
       <nav
         className={`${props.burgerMenu ? "burgerNav" : null} burgerHiddenNav`}

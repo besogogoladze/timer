@@ -40,24 +40,6 @@
   cursor: not-allowed;
 }
 
-.settings {
-  margin: 20px 0;
-}
-
-.settings label {
-  display: block;
-  margin: 10px 0;
-  font-size: 1rem;
-}
-
-.settings input {
-  margin-left: 10px;
-  padding: 5px;
-  font-size: 1rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
 .current-round {
   margin: 20px 0;
 }
@@ -73,4 +55,10 @@
 .current-round h2,
 .total-workout-time h2 {
   font-size: 1.5rem;
+}
+#seconds-outlined fieldset {
+  border-color: #fff !important;
+}
+#filled-number-label {
+  color: #fff;
 }
