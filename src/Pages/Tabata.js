@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import audioMp3 from "../Sound/drum.MP3";
-import airHorn from "../Sound/airhorn-blast-soundroll-lower-1-00-03.mp3";
+import airHorn from "../Sound/airhorn-blast-soundroll-lower-1-00-03.MP3";
 import drumRoll from "../Sound/drum-roll.MP3";
 import "./tabata.css";
 import Intervals from "../Components/Intervals/Intervals";
@@ -29,9 +29,9 @@ function Tabata() {
   const alarmSound = useRef(null);
   const airHornSound = useRef(null);
   const drumEffectRoll = useRef(null);
-  const { soundNumber } = useToggle();
+  const { soundNumber, SoundTiming } = useToggle();
 
-  let min = 1;
+  let min = 0;
 
   useEffect(() => {
     let interval = null;
@@ -110,7 +110,7 @@ function Tabata() {
   };
 
   const handleWorkTimeChange = (e) => {
-    setWorkTime(Math.max(min, Number(e.target.value)));
+    setWorkTime(Math.max(min + 1, Number(e.target.value)));
     setWorkTimeLeft(Number(e.target.value));
     localStorage.setItem("workTime", Number(e.target.value));
   };
@@ -140,7 +140,7 @@ function Tabata() {
 
   if (isActive === true) {
     for (let i = soundNumber; i > 0; i--) {
-      if (workTimeLeft === i || restTimeLeft === i) {
+      if (workTimeLeft <= i || restTimeLeft <= i) {
         playAudio();
       }
     }
@@ -155,55 +155,71 @@ function Tabata() {
   }
 
   return (
-    <div className="tabata-timer">
-      <h1>{isResting ? "დასვენება" : "ვარჯიში"}</h1>
-      <div className="time">
-        {isResting ? formatTimer(restTimeLeft) : formatTimer(workTimeLeft)}
-      </div>
-      <div className="controls">
-        {isActive ? (
-          <button
-            onClick={handlePause}
-            disabled={!isActive}
-            style={{ backgroundColor: "#820000", color: "red" }}
-          >
-            Stop
-          </button>
-        ) : (
-          <button onClick={handleStart} disabled={isActive}>
-            Start
-          </button>
-        )}
-
-        <button
-          style={{ backgroundColor: "gray", color: "#fff" }}
-          onClick={handleReset}
-        >
-          Reset
-        </button>
-      </div>
-      <Intervals
-        workTime={workTime}
-        handleWorkTimeChange={handleWorkTimeChange}
-        isActive={isActive}
-        restTime={restTime}
-        handleRestTimeChange={handleRestTimeChange}
-        rounds={rounds}
-        handleRoundsChange={handleRoundsChange}
+    <>
+      <SoundTiming
+        e={isResting ? formatTimer(restTimeLeft) : formatTimer(workTimeLeft)}
       />
-      <div className="current-round">
-        <h2>
-          რაუნი {currentRound} / {rounds}
-        </h2>
-        <div className="total-workout-time">
-          <h2>{formatTime(elapsedTime)}</h2>
-          <p>სავარჯიშო დრო: {formatTime(totalWorkoutTime)}</p>
-          <audio ref={alarmSound} src={audioMp3} />
-          <audio ref={airHornSound} src={airHorn} />
-          <audio ref={drumEffectRoll} src={drumRoll} />
+      <div className="tabata-timer">
+        <h1>{isResting ? "დასვენება" : "ვარჯიში"}</h1>
+        <div className="time">
+          {isResting ? formatTimer(restTimeLeft) : formatTimer(workTimeLeft)}
+        </div>
+        <div className="controls">
+          {isActive ? (
+            <button
+              onClick={handlePause}
+              disabled={!isActive}
+              style={{ backgroundColor: "#820000", color: "red" }}
+            >
+              Stop
+            </button>
+          ) : currentRound > rounds ? (
+            <button
+              style={{ backgroundColor: "gray", color: "red" }}
+              onClick={handleStart}
+              disabled={true}
+            >
+              Start
+            </button>
+          ) : (
+            <button onClick={handleStart} disabled={isActive}>
+              Start
+            </button>
+          )}
+          {currentRound > rounds ? (
+            <button onClick={handleReset}>Reset</button>
+          ) : (
+            <button
+              style={{ backgroundColor: "gray", color: "#fff" }}
+              onClick={handleReset}
+            >
+              Reset
+            </button>
+          )}
+        </div>
+        <Intervals
+          workTime={workTime}
+          handleWorkTimeChange={handleWorkTimeChange}
+          isActive={isActive}
+          restTime={restTime}
+          handleRestTimeChange={handleRestTimeChange}
+          rounds={rounds}
+          handleRoundsChange={handleRoundsChange}
+        />
+        <div className="current-round">
+          <h2>
+            რაუნი {currentRound} / {rounds}
+          </h2>
+          <div className="total-workout-time">
+            <h2>{formatTime(elapsedTime)}</h2>
+            <p>სავარჯიშო დრო: {formatTime(totalWorkoutTime)}</p>
+            <audio ref={alarmSound} src={audioMp3} />
+            <audio ref={airHornSound} src={airHorn} />
+            <audio ref={drumEffectRoll} src={drumRoll} />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
