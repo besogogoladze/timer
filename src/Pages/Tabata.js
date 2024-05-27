@@ -185,7 +185,7 @@ function Tabata() {
             >
               Stop
             </button>
-          ) : currentRound > rounds ? (
+          ) : currentRound > rounds || startFunction === true ? (
             <button
               style={{ backgroundColor: "gray", color: "red" }}
               onClick={handleStart}

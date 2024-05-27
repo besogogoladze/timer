@@ -137,7 +137,7 @@ const Stopwatch = () => {
             >
               Stop
             </button>
-          ) : running ? (
+          ) : running || startFunction === true ? (
             <button
               style={{ backgroundColor: "gray", color: "red" }}
               onClick={start}
