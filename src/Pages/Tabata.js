@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import audioMp3 from "../Sound/drum.MP3";
 import airHorn from "../Sound/airhorn-blast-soundroll-lower-1-00-03.MP3";
 import drumRoll from "../Sound/drum-roll.MP3";
-import "./tabata.css";
-import Intervals from "../Components/Intervals/Intervals";
+import "./style.css";
+import Intervals from "../Components/Intervals_tabata/Intervals";
 import { useToggle } from "../Hooks/UseContext";
 
 function Tabata() {
@@ -30,7 +30,6 @@ function Tabata() {
   const alarmSound = useRef(null);
   const airHornSound = useRef(null);
   const drumEffectRoll = useRef(null);
-  const refClick = useRef(null);
   const { soundNumber, SoundTiming, StartFunction } = useToggle();
 
   let min = 0;
@@ -81,7 +80,6 @@ function Tabata() {
 
   const playAudio = () => {
     alarmSound.current.play();
-    console.log(alarmSound.current);
   };
   const playAirHorn = () => {
     airHornSound.current.play();
@@ -196,7 +194,7 @@ function Tabata() {
               Start
             </button>
           ) : (
-            <button ref={refClick} onClick={handleStart} disabled={isActive}>
+            <button onClick={handleStart} disabled={isActive}>
               Start
             </button>
           )}
@@ -222,7 +220,7 @@ function Tabata() {
         />
         <div className="current-round">
           <h2>
-            რაუნი {currentRound} / {rounds}
+            რაუნდი {currentRound} / {rounds}
           </h2>
           <div className="total-workout-time">
             <h2>{formatTime(elapsedTime)}</h2>

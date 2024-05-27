@@ -1,4 +1,3 @@
-import { grey } from "@mui/material/colors";
 import React, { createContext, useState, useContext, useEffect } from "react";
 
 // Create a context
@@ -23,7 +22,11 @@ export const ToggleProvider = ({ children }) => {
   };
 
   const SoundTiming = ({ ...props }) => {
-    const soundTiming = props.e.slice(-2);
+    let soundTiming = props.e.slice(-2);
+    if (props.e.slice(0, 2) > 0) {
+      soundTiming = props.e.slice(2) + props.e.slice(-2);
+    }
+
     return soundTiming <= soundNumber ? (
       <div
         style={{
