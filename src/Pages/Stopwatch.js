@@ -104,12 +104,12 @@ const Stopwatch = () => {
   };
 
   if (running === true) {
-    for (let i = soundNumber; i > 0; i--) {
-      if (stopwatchTime === i) {
+    for (let i = Number(soundNumber); i > 0; i--) {
+      if (Number(stopwatchTime) === i) {
         playAudio();
       }
     }
-    if (stopwatchTime === 0) {
+    if (Number(stopwatchTime) === 0) {
       playAirHorn();
     }
   }

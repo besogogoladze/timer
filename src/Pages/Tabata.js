@@ -125,7 +125,6 @@ function Tabata() {
     setRestTime(Math.max(min, Number(e.target.value)));
     setRestTimeLeft(Number(e.target.value));
     localStorage.setItem("restTime", Number(e.target.value));
-    console.log(Number(e.target.value));
   };
   const totalWorkoutTime = workTime * rounds + restTime * rounds;
 
@@ -145,13 +144,13 @@ function Tabata() {
   };
 
   if (isActive === true) {
-    for (let i = soundNumber; i > 0; i--) {
-      if (workTimeLeft === i || restTimeLeft === i) {
+    for (let i = Number(soundNumber); i > 0; i--) {
+      if (Number(workTimeLeft) === i || Number(restTimeLeft) === i) {
         playAudio();
       }
     }
     if (formatTime(elapsedTime) !== formatTime(totalWorkoutTime)) {
-      if (workTimeLeft === 0 || restTimeLeft === 0) {
+      if (Number(workTimeLeft) === 0 || Number(restTimeLeft) === 0) {
         playAirHorn();
       }
     }

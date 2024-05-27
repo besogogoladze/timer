@@ -26,8 +26,7 @@ export const ToggleProvider = ({ children }) => {
     if (props.e.slice(0, 2) > 0) {
       soundTiming = props.e.slice(2) + props.e.slice(-2);
     }
-
-    return soundTiming <= soundNumber ? (
+    return Number(soundTiming) <= Number(soundNumber) ? (
       <div
         style={{
           position: "absolute",
