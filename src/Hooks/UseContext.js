@@ -74,7 +74,7 @@ export const ToggleProvider = ({ children }) => {
       if (props.startFunction === false) {
         setCount(3);
       }
-    }, [props, props.startFunction]);
+    }, [count, props, props.startFunction]);
 
     return (
       <div
