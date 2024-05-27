@@ -1,10 +1,13 @@
 import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
-import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import TimerIcon from "@mui/icons-material/Timer";
 import AvTimerIcon from "@mui/icons-material/AvTimer";
 import ShutterSpeedIcon from "@mui/icons-material/ShutterSpeed";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import { CardActionArea } from "@mui/material";
 import "./header.css";
 import { useToggle } from "../../Hooks/UseContext";
 
@@ -32,7 +35,7 @@ function Header({ ...props }) {
         } burgerHeaderDiv`}
       >
         <button onClick={props.menuOpener}>
-          <MenuIcon />
+          <MenuIcon style={{ fontSize: "2rem" }} />
         </button>
         <p>{pathname === "/" ? "Tabata" : capitalizeFirstLetter(pathname)}</p>
         <button onClick={toggle} style={{ color: "chocolate" }}>
@@ -54,85 +57,126 @@ function Header({ ...props }) {
             width: "100%",
             backgroundColor: "grey",
             margin: "0",
+            padding: "20px 0",
             display: "flex",
             flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
             gap: "20px",
           }}
         >
           <li
             style={{
               display: "flex",
-              justifyContent: "start",
+              justifyContent: "center",
               alignItems: "center",
-              paddingTop: "20px",
+              width: "100%",
             }}
           >
-            <div style={{ margin: "0px 10px" }}>
-              <ShutterSpeedIcon style={{ color: "chocolate" }} />
-            </div>
-            <NavLink
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                width: "100%",
-                paddingRight: "10px",
-              }}
-              onClick={() => props.setBurgerMenu(false)}
-              to="/"
-            >
-              <p>Tabata</p>
-              <KeyboardArrowRightIcon style={{ color: "#424242" }} />
+            <NavLink onClick={() => props.setBurgerMenu(false)} to="/">
+              <Card
+                sx={{
+                  maxWidth: "100%",
+                  width: "250px",
+                  backgroundColor: "#003",
+                  borderRadius: "2rem",
+                }}
+              >
+                <CardActionArea>
+                  <ShutterSpeedIcon
+                    style={{
+                      color: "chocolate",
+                      width: "100%",
+                      fontSize: "50px",
+                      marginTop: "20px",
+                    }}
+                  />
+                  <CardContent>
+                    <Typography
+                      variant="h4"
+                      style={{ color: "#fff", textAlign: "center" }}
+                    >
+                      Tabata
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
             </NavLink>
           </li>
           <li
             style={{
               display: "flex",
-              justifyContent: "start",
+              justifyContent: "center",
               alignItems: "center",
+              width: "100%",
             }}
           >
-            <div style={{ margin: "0px 10px" }}>
-              <AvTimerIcon style={{ color: "chocolate" }} />
-            </div>
-            <NavLink
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                width: "100%",
-                paddingRight: "10px",
-              }}
-              onClick={() => props.setBurgerMenu(false)}
-              to="/rounds"
-            >
-              <p>Rounds</p>
-              <KeyboardArrowRightIcon style={{ color: "#424242" }} />
+            <NavLink onClick={() => props.setBurgerMenu(false)} to="/rounds">
+              <Card
+                sx={{
+                  maxWidth: "100%",
+                  width: "250px",
+                  backgroundColor: "#003",
+                  borderRadius: "2rem",
+                }}
+              >
+                <CardActionArea>
+                  <AvTimerIcon
+                    style={{
+                      color: "chocolate",
+                      width: "100%",
+                      fontSize: "50px",
+                      marginTop: "20px",
+                    }}
+                  />
+                  <CardContent>
+                    <Typography
+                      variant="h4"
+                      style={{ color: "#fff", textAlign: "center" }}
+                    >
+                      Rounds
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
             </NavLink>
           </li>
           <li
             style={{
               display: "flex",
-              justifyContent: "start",
+              justifyContent: "center",
               alignItems: "center",
+              width: "100%",
             }}
           >
-            <div style={{ margin: "0px 10px" }}>
-              <TimerIcon style={{ color: "chocolate" }} />
-            </div>
-            <NavLink
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                width: "100%",
-                paddingRight: "10px",
-              }}
-              onClick={() => props.setBurgerMenu(false)}
-              to="/stopwatch"
-            >
-              <p>Stopwatch</p>
-              <KeyboardArrowRightIcon style={{ color: "#424242" }} />
+            <NavLink onClick={() => props.setBurgerMenu(false)} to="/stopwatch">
+              <Card
+                sx={{
+                  maxWidth: "100%",
+                  width: "250px",
+                  backgroundColor: "#003",
+                  borderRadius: "2rem",
+                }}
+              >
+                <CardActionArea>
+                  <TimerIcon
+                    style={{
+                      color: "chocolate",
+                      width: "100%",
+                      fontSize: "50px",
+                      marginTop: "20px",
+                    }}
+                  />
+                  <CardContent>
+                    <Typography
+                      variant="h4"
+                      style={{ color: "#fff", textAlign: "center" }}
+                    >
+                      Stopwatch
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
             </NavLink>
           </li>
         </ul>
