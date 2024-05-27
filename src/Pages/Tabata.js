@@ -7,6 +7,7 @@ import Intervals from "../Components/Intervals/Intervals";
 import { useToggle } from "../Hooks/UseContext";
 
 function Tabata() {
+  const [startFunction, setStartFunction] = useState(false);
   const [workTime, setWorkTime] = useState(
     localStorage.getItem("workTime") === null
       ? 30
@@ -80,6 +81,7 @@ function Tabata() {
 
   const playAudio = () => {
     alarmSound.current.play();
+    console.log(alarmSound.current);
   };
   const playAirHorn = () => {
     airHornSound.current.play();
@@ -89,9 +91,11 @@ function Tabata() {
   };
 
   const handleStart = () => {
+    setStartFunction(true);
     setTimeout(() => {
       setIsActive(true);
-    }, 3000);
+      setStartFunction(false);
+    }, 4000);
     return clearTimeout();
   };
 
@@ -160,7 +164,11 @@ function Tabata() {
 
   return (
     <>
-      <StartFunction />
+      <StartFunction
+        playAudio={playAudio}
+        playAirHorn={playAirHorn}
+        startFunction={startFunction}
+      />
       <SoundTiming
         isActive={isActive ? "flex" : "none"}
         e={isResting ? formatTimer(restTimeLeft) : formatTimer(workTimeLeft)}
