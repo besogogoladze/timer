@@ -1,0 +1,23 @@
+.startFunction {
+  height: 200px;
+  width: 200px;
+  animation: pulse 1s linear infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0%;
+    font-size: 30px;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 80%;
+    font-size: 60px;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 80%;
+    font-size: 90px;
+  }
+}

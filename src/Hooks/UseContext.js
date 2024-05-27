@@ -1,4 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
+import "./useContext.css";
 
 // Create a context
 const ToggleContext = createContext();
@@ -28,20 +29,19 @@ export const ToggleProvider = ({ children }) => {
     }
     return Number(soundTiming) <= Number(soundNumber) ? (
       <div
+        className="startFunction"
         style={{
           position: "absolute",
           top: "30%",
           right: "23%",
           color: "#fff",
           backgroundColor: "grey",
-          fontSize: "50px",
           width: "200px",
           height: "200px",
           borderRadius: "200px",
           borderWidth: "0px",
           justifyContent: "center",
           alignItems: "center",
-          opacity: "60%",
           display: props.isActive,
         }}
       >
@@ -80,20 +80,19 @@ export const ToggleProvider = ({ children }) => {
 
     return (
       <div
+        className="startFunction"
         style={{
           position: "absolute",
           top: "30%",
           right: "24%",
           color: `${count === 0 ? "#00e81b" : "#fff"}`,
           backgroundColor: `${count === 0 ? "#006128" : "grey"}`,
-          fontSize: "50px",
           width: "200px",
           height: "200px",
           borderRadius: "200px",
           borderWidth: "0px",
           justifyContent: "center",
           alignItems: "center",
-          opacity: "80%",
           display: `${props.startFunction ? "flex" : "none"}`,
         }}
       >
