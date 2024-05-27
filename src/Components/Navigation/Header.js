@@ -55,7 +55,6 @@ function Header({ ...props }) {
         <ul
           style={{
             width: "100%",
-            backgroundColor: "grey",
             margin: "0",
             padding: "20px 0",
             display: "flex",
