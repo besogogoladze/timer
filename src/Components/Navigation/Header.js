@@ -4,6 +4,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import TimerIcon from "@mui/icons-material/Timer";
 import AvTimerIcon from "@mui/icons-material/AvTimer";
 import ShutterSpeedIcon from "@mui/icons-material/ShutterSpeed";
+import SettingsIcon from "@mui/icons-material/Settings";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
@@ -39,7 +40,7 @@ function Header({ ...props }) {
         </button>
         <p>{pathname === "/" ? "Tabata" : capitalizeFirstLetter(pathname)}</p>
         <button onClick={toggle} style={{ color: "chocolate" }}>
-          Intervals
+          <SettingsIcon style={{ fontSize: "2rem" }} />
         </button>
       </div>
       <nav

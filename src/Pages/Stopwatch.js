@@ -55,14 +55,11 @@ const Stopwatch = () => {
         }, 1000);
       }
     }
-    return () => clearInterval(timer);
-  }, [stopwatchTime, running]);
-
-  useEffect(() => {
     if (stopwatchTime === 0) {
       setRounds((prev) => prev + 1);
     }
-  }, [stopwatchTime]);
+    return () => clearInterval(timer);
+  }, [stopwatchTime, running]);
 
   const start = () => {
     setStartFunction(true);
