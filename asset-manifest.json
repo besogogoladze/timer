@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/timer/static/css/main.d88aa9a3.css",
-    "main.js": "/timer/static/js/main.2ffe28ab.js",
+    "main.css": "/timer/static/css/main.5f7f8420.css",
+    "main.js": "/timer/static/js/main.2856a887.js",
     "static/media/airhorn-blast-soundroll-lower-1-00-03.MP3": "/timer/static/media/airhorn-blast-soundroll-lower-1-00-03.a83628dfb2baae11b6f3.MP3",
     "static/media/drum-roll.MP3": "/timer/static/media/drum-roll.4bab5614187c8ab341fb.MP3",
     "static/media/drum.MP3": "/timer/static/media/drum.bc3a21f88cf3b19990da.MP3",
     "index.html": "/timer/index.html",
-    "main.d88aa9a3.css.map": "/timer/static/css/main.d88aa9a3.css.map",
-    "main.2ffe28ab.js.map": "/timer/static/js/main.2ffe28ab.js.map"
+    "main.5f7f8420.css.map": "/timer/static/css/main.5f7f8420.css.map",
+    "main.2856a887.js.map": "/timer/static/js/main.2856a887.js.map"
   },
   "entrypoints": [
-    "static/css/main.d88aa9a3.css",
-    "static/js/main.2ffe28ab.js"
+    "static/css/main.5f7f8420.css",
+    "static/js/main.2856a887.js"
   ]
 }
