@@ -222,8 +222,8 @@ function Tabata() {
             რაუნდი {currentRound} / {rounds}
           </h2>
           <div className="total-workout-time">
-            <h2>{formatTime(elapsedTime)}</h2>
-            <p>სავარჯიშო დრო: {formatTime(totalWorkoutTime)}</p>
+            <h3>{formatTimer(elapsedTime)}</h3>
+            <p>სრული დრო: {formatTime(totalWorkoutTime)}</p>
             <audio ref={alarmSound} src={audioMp3} />
             <audio ref={airHornSound} src={airHorn} />
             <audio ref={drumEffectRoll} src={drumRoll} />

@@ -19,6 +19,7 @@ const Stopwatch = () => {
       ? 60
       : localStorage.getItem("stopwatch_time")
   );
+  const [elapsedTime, setElapsedTime] = useState(0);
   const { soundNumber, SoundTiming, StartFunction } = useToggle();
   const alarmSound = useRef(null);
   const airHornSound = useRef(null);
@@ -40,6 +41,7 @@ const Stopwatch = () => {
       if (stopwatchTime > 0) {
         timer = setInterval(() => {
           setStopwatchTime((prev) => prev - 1);
+          setElapsedTime((time) => time + 1);
         }, 1000);
       }
       if (stopwatchTime === 0) {
@@ -82,6 +84,7 @@ const Stopwatch = () => {
         : localStorage.getItem("stopwatch_time")
     );
     setRounds(1);
+    setElapsedTime(0);
     if (running) {
       playDrumRoll();
     }
@@ -101,6 +104,14 @@ const Stopwatch = () => {
     return `${minutes < 10 ? "0" : ""}${minutes}:${
       remainingSeconds < 10 ? "0" : ""
     }${remainingSeconds}`;
+  };
+
+  const formatTime = (seconds) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes}m:${
+      remainingSeconds < 10 ? "0" : ""
+    }${remainingSeconds}s`;
   };
 
   if (running === true) {
@@ -169,7 +180,8 @@ const Stopwatch = () => {
         <div className="current-round">
           <h2>რაუნდი {rounds}</h2>
           <div className="total-workout-time">
-            <p>სავარჯიშო დრო: {formatTimer(totalWorkoutTime)}</p>
+            <h2>{formatTimer(elapsedTime)}</h2>
+            <p>სავარჯიშო დრო: {formatTime(totalWorkoutTime)}</p>
           </div>
         </div>
         <audio ref={alarmSound} src={audioMp3} />
