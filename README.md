@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 <div align="center">
-![image](https://github.com/user-attachments/assets/dc5db670-c026-40f6-b54f-12be373a6c43)
+  <img src="https://github.com/user-attachments/assets/dc5db670-c026-40f6-b54f-12be373a6c43" alt="image"/>
 </div>
 
 
