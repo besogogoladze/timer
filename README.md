@@ -1,6 +1,8 @@
 # Getting Started with Create React App
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/dc5db670-c026-40f6-b54f-12be373a6c43" alt="image"/>
+  <img src="https://github.com/user-attachments/assets/dc5db670-c026-40f6-b54f-12be373a6c43" width="300px" alt="image"/>
+  <img src="https://github.com/user-attachments/assets/60d313ab-3970-4ede-9e19-ae083a4e6a42" width="200px" alt="image"/>
+
 </div>
 
 
